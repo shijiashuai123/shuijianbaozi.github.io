@@ -122,6 +122,108 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>emm,my name is shuijianbaozi</p>
+<ul>
+<li>介绍<ul>
+<li>hexo:基于node.js的,轻量级的,高性价比的,静态博客框架</li>
+<li>github:全球最大的,同性交友网站</li>
+</ul>
+</li>
+<li><p>操作步骤</p>
+<ul>
+<li>安装Node.js和配置好Node.js环境，打开cmd命令行测试<ul>
+<li>node -v</li>
+<li>npm -v</li>
+</ul>
+</li>
+<li>安装git和配置git环境,打开cmd命令测试<ul>
+<li>git –version</li>
+</ul>
+</li>
+<li>github上创建一个新的项目(遵守格式:账户名.github.io)<ul>
+<li>访问:<a href="https://shuijianbaozi.github.io" target="_blank" rel="noopener">https://shuijianbaozi.github.io</a></li>
+</ul>
+</li>
+<li>创建文件夹(该文件夹为博客放置的文件夹)<ul>
+<li>在f盘创建blog文件夹</li>
+<li>dos窗口进入blog文件夹<ul>
+<li>cd f:/blog</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>安装 Hexo<ul>
+<li>npm install hexo -g #开始安装hexo</li>
+<li>hexo -v #检查hexo是否安装成功</li>
+<li>hexo init #使用Hexo初始化文件夹</li>
+<li>npm install #安装所需要的组件</li>
+<li>首次体验Hexo<ul>
+<li>hexo g</li>
+<li>hexo s #开启服务器<ul>
+<li>hexo server -p 4001 #如果端口被占用</li>
+</ul>
+</li>
+<li>浏览器测试:<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></li>
+<li>ctrl+c #停止服务器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>将Hexo与Github page联系起来(设置git的username和useremail)<ul>
+<li>git和blog文件夹关联<ul>
+<li>常用方法<ul>
+<li>进入F:\blog</li>
+<li>点击Git Base Here</li>
+<li>git config –global user.name “shuijianbaozi” #配置全局的name(github账号name)</li>
+<li>git config –global user.email “<a href="mailto:1649258746@qq.com" target="_blank" rel="noopener">1649258746@qq.com</a>“ #配置全局的email(github账号email)</li>
+<li>cd ~/.ssh</li>
+<li>ls</li>
+<li>ssh-keygen -t rsa -C “<a href="mailto:1649258746@qq.com" target="_blank" rel="noopener">1649258746@qq.com</a>“ #生成密钥(默认文件路径C:\Users\Administrator.ssh)</li>
+<li>连续点击三次回车 设置的密码为空</li>
+<li>eval “$(ssh-agent -s)” #添加密钥到ssh-agent</li>
+<li>ssh-add ~/.ssh/id_rsa #添加生成的SSH key到ssh-agent</li>
+</ul>
+</li>
+<li>windows7<ul>
+<li>开始-Git Bash #打开窗口</li>
+<li>cd f/blog #进入blog文件</li>
+<li>make ~/.ssh #创建.ssh文件(默认文件路径C:\Users\Administrator.ssh)</li>
+<li>git config –global user.name “shuijianbaozi”  #配置全局的name(github账号name)</li>
+<li>git config –global user.email “<a href="mailto:1649258746@qq.com" target="_blank" rel="noopener">1649258746@qq.com</a>“  #配置全局的email(github账号email)</li>
+<li>ssh-keygen -t rsa -C “<a href="mailto:1649258746@qq.com" target="_blank" rel="noopener">1649258746@qq.com</a>“   #生成key</li>
+<li>连续点击三次回车 设置的密码为空</li>
+<li>eval “$(ssh-agent -s)” #添加密钥到ssh-agent</li>
+<li>ssh-add ~/.ssh/id_rsa #添加生成的SSH key到ssh-agent</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>在github中添加ssh<ul>
+<li>登陆Github-头像-settings-Personal settings-SSH and GPG keys-new ssh key-将.ssh文件中的id_rsa.pub内容复制</li>
+<li>按钮(Add SSH key)-输入github的账户密码</li>
+<li>git窗口输入ssh -T <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a> #测试添加ssh是否成功。如果看到Hi后面是你的用户名，就说明成功了</li>
+</ul>
+</li>
+<li><p>配置Deployment文件,在文件夹中,找到_config.yml文件,修改repo的值(在末尾),注意:下边type,repository,branch后边都有空格!!</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:shuijianbaozi/shuijianbaozi.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>新建一篇博客</p>
+<ul>
+<li>f:\blog&gt;hexo new post “hello,Hexo” #这时候在文件夹blog/source/_posts目录下将会看到已经创建的文件</li>
+<li>npm install hexo-deployer-git –save #生成和部署文章之前,安装一个扩展(只需要下载一遍即可)</li>
+<li>hexo d -g #编辑好的文章生成部署</li>
+<li>github网站上刷新一下即可看到几秒前用git更新的内容</li>
+<li>部署成功后访问你的地址:http://用户名.github.io<ul>
+<li><a href="https://shuijianbaozi.github.io/index.html" target="_blank" rel="noopener">https://shuijianbaozi.github.io/index.html</a> 也可以访问</li>
+<li>如果有乱码问题,直接在编辑器哪里修改文件为utf-8的格式即可</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
